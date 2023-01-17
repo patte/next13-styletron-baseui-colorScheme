@@ -3,14 +3,14 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { useStyletron } from 'baseui'
-import { Button, KIND, SIZE, SHAPE } from 'baseui/button'
-import { MdLightbulb } from 'react-icons/md'
+
 import { ColorScheme, useColorScheme } from '@/lib/ui/colorScheme/client'
+import { ToggleButton } from './ColorScheme'
 
 type NavigationProps = {}
 const Navigation = ({}: NavigationProps) => {
   const [css, theme] = useStyletron()
-  const { colorScheme, toggleColorScheme } = useColorScheme()
+  const { colorScheme } = useColorScheme()
   return (
     <>
       <nav
@@ -53,23 +53,7 @@ const Navigation = ({}: NavigationProps) => {
               marginLeft: 'auto',
             }}
           >
-            <Button
-              onClick={() => toggleColorScheme()}
-              size={SIZE.compact}
-              kind={KIND.tertiary}
-              shape={SHAPE.square}
-              title='Toggle light/dark'
-              overrides={{
-                BaseButton: {
-                  style: {
-                    display: 'flex',
-                    marginLeft: '5px',
-                  },
-                },
-              }}
-            >
-              <MdLightbulb size={20} color={theme.colors.contentPrimary} />
-            </Button>
+            <ToggleButton />
           </div>
         </div>
       </nav>
