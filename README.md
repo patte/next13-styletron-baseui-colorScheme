@@ -2,20 +2,20 @@
 
 A [Next.js](https://nextjs.org/) v13-beta, [React](https://reactjs.org) v18 project with [Styletron](https://www.styletron.org/), [BaseWeb](https://baseweb.design/) and detection / selection of the prefered color-scheme (dark, light).
 
-- [✅] Next.js v13 beta server components
-- [✅] Styletron SSR with `useServerInsertedHTML`
-- [✅] BaseWeb with custom theme
-- [✅] render styletron/baseWeb components in client components
-- [❌] render styletron/baseWeb components in server components (only use it in client components)
-
-- [✅] detect prefered color scheme
-- [✅] toggle color scheme
-- [✅] SSR the correct color scheme without flash on first visit in chromium `>= 93`
-- [✅] SSR the correct color scheme after on consecutive visits in all browsers
-- [✅] change to the correct preferred color scheme on mount in all browsers
-- [❌] SSR the correct color scheme without flash on first visit in chromium `< 93` or other browsers
-
 [Demo](https://next13-styletron-baseui-colorscheme.fly.dev/)
+
+✅ Next.js v13 beta server components
+✅ Styletron SSR with `useServerInsertedHTML`
+✅ BaseWeb with custom theme
+✅ render styletron/baseWeb components in client components
+❌ render styletron/baseWeb components in server components (only use it in client components)
+
+✅ detect prefered color scheme
+✅ toggle color scheme
+✅ SSR the correct color scheme without flash on first visit in chromium `>= 93`
+✅ SSR the correct color scheme after on consecutive visits in all browsers
+✅ change to the correct preferred color scheme on mount in all browsers
+❌ SSR the correct color scheme without flash on first visit in chromium `< 93` or other browsers
 
 ### Features
 
@@ -28,7 +28,6 @@ With the `app` directory for react server components and data fetching.
 The [SsrStyletronProvider](lib/ui/StyletronProvider.tsx) is use to get the stylesheets after prerendering and setting if as a style tag in the head of the SSR response.
 
 Rendering styletron components in client components works fine. In server components it doesn't because styletron uses `createContext`. Issue: https://github.com/styletron/styletron/issues/430
-
 
 #### color-scheme
 
