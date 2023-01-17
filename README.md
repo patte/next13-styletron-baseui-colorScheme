@@ -24,7 +24,7 @@ With the `app` directory for react server components and data fetching.
 
 #### Styletron
 
-The [SsrStyletronProvider](lib/ui/StyletronProvider.tsx) is use to get the stylesheets after prerendering and setting if as a style tag in the head of the SSR response.
+The [SsrStyletronProvider](lib/ui/StyletronProvider.tsx) is use to get the stylesheets after prerendering and setting if as a style tag with the class `_styletron_hydrate_` in the head of the SSR response. On the client the provider rehydrates styletron by finding the element in the head.
 
 Rendering styletron components in client components works fine. In server components it doesn't because styletron uses `createContext`. Issue: https://github.com/styletron/styletron/issues/430
 
