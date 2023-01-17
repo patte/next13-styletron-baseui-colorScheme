@@ -14,7 +14,7 @@ A [Next.js](https://nextjs.org/) v13-beta, [React](https://reactjs.org) v18 proj
 - ✅ SSR the correct color scheme without flash on first visit in chromium `>= 93`
 - ✅ SSR the correct color scheme after on consecutive visits in all browsers
 - ✅ change to the correct preferred color scheme on mount in all browsers
-- ❌ SSR the correct color scheme without flash on first visit in chromium `< 93` or other browsers
+- ❌ SSR the correct color scheme dark without flash on first visit in chromium `< 93` or other browsers.
 
 ### Features
 
@@ -39,10 +39,12 @@ The [colorScheme lib](lib/ui/colorScheme) solves this with the following steps:
 - The [SsrColorSchemeProvider](lib/ui/colorScheme/server.tsx) (server component) reads the header and sets it as a prop on the [ClientProvider](lib/ui/colorScheme/client.tsx) (client component).
 - The [SsrColorSchemeProvider](lib/ui/colorScheme/server.tsx) (server component) also reads the `prefers-color-scheme` cookie from the request and sets it as a prop on the ClientProvider.
 - The [ClientProvider](lib/ui/colorScheme/client.tsx)
-  - uses the these two props to derive the color scheme (cookie wins over header) and set it as a context value for consumption downstream.
+  - uses the these two props to derive the color scheme: cookie wins over header. If no preference can be determined `light` is assumed as the default. It then provides a context value for consumption downstream (by the baseweb provider and the [toggle button](ui/Navigation.tsx#L13)).
   - provides a toogle function that sets the user's prefered color scheme in the cookie and updates the context value.
   - upon first mount checks if the current color scheme (set by SSR) is different from the medie query `prefers-color-scheme` and if no cookie is set (no local preference), "corrects" the wrong guess by toggling the color scheme to the correct one. This saves the preference in the cookie, so the next SSR will be correct.
   - during it's livetime: listens for media query changes to `prefers-color-scheme` and toggles the color scheme accordingly.
+
+This works in all browsers, but the first visit in chromium `>= 93` will flash the wrong color scheme before the javascript kicks in and toggles it to the correct one.
 
 #### BaseWeb
 
