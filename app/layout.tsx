@@ -1,4 +1,7 @@
 import './globals.css'
+import { Providers as UiProviders } from '../lib/ui/Providers'
+import Navigation from '@/ui/Navigation'
+import Container from '@/ui/Container'
 
 export default function RootLayout({
   children,
@@ -6,13 +9,19 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang='en'>
       {/*
-        <head /> will contain the components returned by the nearest parent
-        head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
+        <head /> will contain the components returned by the nearest parent head.tsx.
       */}
       <head />
-      <body>{children}</body>
+      <body>
+        <UiProviders>
+          <Container>
+            <Navigation />
+            {children}
+          </Container>
+        </UiProviders>
+      </body>
     </html>
   )
 }
