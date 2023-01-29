@@ -1,5 +1,6 @@
 'use client'
 
+import { useRouter } from 'next/navigation'
 import {
   createContext,
   useCallback,
@@ -14,9 +15,16 @@ export enum ColorScheme {
   dark = 'dark',
 }
 
-export const ColorSchemeContext = createContext({
+type ColorSchemeContext = {
+  colorScheme: ColorScheme
+  toggleColorScheme: () => void
+}
+
+export const ColorSchemeContext = createContext<ColorSchemeContext>({
   colorScheme: ColorScheme.light,
-  toggleColorScheme: () => {},
+  toggleColorScheme: () => {
+    throw new Error('toggleColorScheme used outside of ColorSchemeProvider')
+  },
 })
 
 export function useColorScheme() {
@@ -43,6 +51,7 @@ export function ClientProvider({
   cookieColorSchema: string | null
   cookieName: string
 }) {
+  const router = useRouter()
   const inputColorScheme =
     cleanColorScheme(cookieColorSchema) || cleanColorScheme(headerColorSchema)
 
@@ -57,8 +66,11 @@ export function ClientProvider({
       }
       setDocumentCookie(cookieName, colorScheme)
       setActiveColorScheme(colorScheme)
+      // send the cookie to the server and thus
+      // update the props (header, cookie) for this component
+      router.refresh()
     },
-    [activeColorScheme, cookieName],
+    [activeColorScheme, cookieName, router],
   )
 
   const toggle = useCallback(() => {
