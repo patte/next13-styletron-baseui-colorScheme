@@ -19,6 +19,7 @@ export function SsrBaseProvider({ children }: { children: React.ReactNode }) {
         style={{
           backgroundColor: theme.colors.backgroundPrimary,
           color: theme.colors.contentPrimary,
+          fontFamily: primitives.primaryFontFamily,
           minHeight: '100vh',
         }}
       >

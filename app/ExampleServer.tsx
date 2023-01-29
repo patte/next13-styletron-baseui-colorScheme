@@ -5,6 +5,9 @@ export default async function ExampleServer() {
     res.json(),
   )
 
+  // sort data.quotes randomly
+  data.quotes.sort(() => Math.random() - 0.5)
+
   return (
     <>
       <h1>Let's go server!</h1>

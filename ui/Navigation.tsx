@@ -5,7 +5,7 @@ import Image from 'next/image'
 import { useStyletron } from 'baseui'
 
 import { ColorScheme, useColorScheme } from '@/lib/ui/colorScheme/client'
-import { ToggleButton } from './ColorScheme'
+import { ToggleColorSchemeButton } from './ColorScheme'
 
 type NavigationProps = {}
 const Navigation = ({}: NavigationProps) => {
@@ -53,7 +53,7 @@ const Navigation = ({}: NavigationProps) => {
               marginLeft: 'auto',
             }}
           >
-            <ToggleButton />
+            <ToggleColorSchemeButton />
           </div>
         </div>
       </nav>

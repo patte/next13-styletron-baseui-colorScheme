@@ -4,7 +4,7 @@ import { styled } from 'baseui'
 import { Button } from 'baseui/button'
 import { useState } from 'react'
 import { ProgressBar } from 'baseui/progress-bar'
-import { HeadingXLarge, HeadingLarge } from 'baseui/typography'
+import { HeadingXLarge, HeadingLarge, ParagraphMedium } from 'baseui/typography'
 import Link from 'next/link'
 import { deleteDocumentCookie } from '@/lib/cookies'
 
@@ -40,6 +40,11 @@ export default function ExampleClient() {
       >
         clear cookie <code>prefers-color-scheme</code>
       </Button>
+      <br />
+      <br />
+      <ParagraphMedium>
+        Test sub path: <Link href='/test-sub-path'>Link</Link>
+      </ParagraphMedium>
       <br />
       <br />
       <HeadingLarge>Let's go client!</HeadingLarge>

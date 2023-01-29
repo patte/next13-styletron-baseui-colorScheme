@@ -1,10 +1,9 @@
-import { setDocumentCookie } from '@/lib/cookies'
 import { useColorScheme } from '@/lib/ui/colorScheme/client'
 import { useStyletron } from 'baseui'
 import { Button, KIND, SIZE, SHAPE } from 'baseui/button'
 import { MdLightbulb } from 'react-icons/md'
 
-export function ToggleButton() {
+export function ToggleColorSchemeButton() {
   const [css, theme] = useStyletron()
   const { colorScheme, toggleColorScheme } = useColorScheme()
   return (
