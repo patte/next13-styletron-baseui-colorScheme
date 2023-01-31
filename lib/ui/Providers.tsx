@@ -4,10 +4,10 @@ import { SsrStyletronProvider } from './StyletronProvider'
 
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
-    <SsrColorSchemeProvider>
-      <SsrStyletronProvider>
+    <SsrStyletronProvider>
+      <SsrColorSchemeProvider>
         <SsrBaseProvider>{children}</SsrBaseProvider>
-      </SsrStyletronProvider>
-    </SsrColorSchemeProvider>
+      </SsrColorSchemeProvider>
+    </SsrStyletronProvider>
   )
 }

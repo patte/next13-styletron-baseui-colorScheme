@@ -2451,10 +2451,10 @@ styled-jsx@5.1.1:
   dependencies:
     client-only "0.0.1"
 
-styletron-engine-atomic@^1.5.0:
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/styletron-engine-atomic/-/styletron-engine-atomic-1.5.0.tgz#b2514d78498d0a8256bd170d0bda30fdfe9018f1"
-  integrity sha512-5rR6cbWqeKlrFUtIyw7aBe3Zn5XDCmxLJ6q7MAYwBCk6pbdBfj5MtoedH6KBygwjTNp7uddE536YrLvLP0N8/w==
+styletron-engine-monolithic@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/styletron-engine-monolithic/-/styletron-engine-monolithic-1.0.0.tgz#41e2bbf9dcbdddff2ff2165f38b563c60f6015e3"
+  integrity sha512-9x+RMLbjf6rzK7mLp5bWzh/wwLbgO0xrU07sW9p9SWu18d+lkfnE8SLDm+jf4NamehQv86etX0X+Zx4PvaeJyA==
   dependencies:
     inline-style-prefixer "^5.1.0"
     styletron-standard "^3.1.0"
